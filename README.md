@@ -180,7 +180,9 @@ If you find this repository useful, please cite:
 
 ## License
 
-The code and dataset licenses will be added after lab approval.
+This code is released under the MIT License. See [LICENSE](LICENSE) for details.
+
+The dataset will be distributed separately through the Harvard AI and Robotics Lab Hugging Face organization.
 
 ---
 
