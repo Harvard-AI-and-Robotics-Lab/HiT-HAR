@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Environments
+.env
+*.env
+.venv/
+venv/
+env/
+
+# Training and generated outputs
+checkpoints/
+wandb/
+outputs/
+figures/
+*.log
+*.pth
+*.pt
+*.ckpt
+
+# Dataset artifacts
+data/processed_ego4d/
+data/processed/
+data/processed_clean/
+data/gold/
+data/labels/
+data/annotations/
+data/analysis/
+
+# Analysis outputs
+analysis/**/figures/
+analysis/**/outputs/
+analysis/figures/output/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

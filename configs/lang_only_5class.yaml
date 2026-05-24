@@ -1,0 +1,42 @@
+# LanIMU ablation: language distillation only (no multi-scale)
+
+lle:
+  in_channels: 8
+  embedding_dim: 128
+  window_size: 50
+  se_reduction: 8
+  dropout: 0.2
+
+hla:
+  num_layers: 3
+  num_classes: 8
+  seq_len: 30
+  nhead: 4
+  dim_feedforward: 512
+  dropout: 0.1
+
+num_actions: 5
+
+# Language distillation
+language_distill: true
+text_model: all-mpnet-base-v2
+lambda_lang: 0.3
+
+training:
+  batch_size: 128
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  epochs: 30
+  warmup_epochs: 5
+  patience: 15
+  grad_clip: 1.0
+  beta_task: 0.7
+  action_weights: [1.0, 1.05, 1.15, 1.22, 1.85]
+  scenario_weights: [1.9, 1.0, 1.4, 2.0, 7.6, 1.2, 2.1, 1.6]
+
+data:
+  action_label_pad: 0.5
+  per_video_center: true
+  add_norm_features: true
+  augmentation: true
+  stride: 5

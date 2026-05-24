@@ -1,0 +1,9 @@
+torch>=2.0
+pandas>=1.5
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+tqdm>=4.65
+wandb>=0.15
+pyyaml>=6.0
+scikit-learn>=1.2

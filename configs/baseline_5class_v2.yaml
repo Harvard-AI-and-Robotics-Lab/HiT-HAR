@@ -1,0 +1,48 @@
+# baseline_5class_v2.yaml — Data quality upgrade + training quick wins
+# Changes from baseline_5class.yaml:
+#   - Stronger class weights (Search 1.85 → 5.0)
+#   - Label smoothing 0.1
+#   - Higher weight decay (1e-5 → 5e-4)
+#   - EMA (decay=0.999)
+#   - Early stop on action_f1 only
+#   - Stride 5 → 10 (reduce overlap from 83% to 67%)
+
+lle:
+  in_channels: 8
+  embedding_dim: 128
+  window_size: 50
+  se_reduction: 8
+  dropout: 0.3  # was 0.2
+
+hla:
+  num_layers: 3
+  num_classes: 8
+  seq_len: 30
+  nhead: 4
+  dim_feedforward: 512
+  dropout: 0.2  # was 0.1
+
+num_actions: 5
+
+training:
+  batch_size: 128
+  lr: 1.0e-4
+  weight_decay: 5.0e-4  # was 1e-5
+  epochs: 40  # was 30 (more epochs since stride increases, fewer samples)
+  warmup_epochs: 3  # was 5
+  patience: 15
+  grad_clip: 1.0
+  beta_task: 1.0  # was 0.7 — let action dominate
+  label_smoothing: 0.1  # NEW
+  ema_decay: 0.999  # NEW
+  early_stop_metric: action_f1  # NEW — was combined
+  # Stronger class weights: Search needs 5x not 1.85x
+  action_weights: [0.8, 1.0, 2.0, 2.5, 5.0]
+  scenario_weights: [1.9, 1.0, 1.4, 2.0, 7.6, 1.2, 2.1, 1.6]
+
+data:
+  action_label_pad: 0.5
+  per_video_center: true
+  add_norm_features: true
+  augmentation: true
+  stride: 10  # was 5 — reduce overlap from 83% to 67%

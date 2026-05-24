@@ -1,0 +1,51 @@
+# 4-class v4: Dual-Space with CLIP text encoder (no Search)
+lle:
+  in_channels: 8
+  embedding_dim: 128
+  window_size: 50
+  se_reduction: 8
+  dropout: 0.3
+hla:
+  num_layers: 3
+  num_classes: 8
+  seq_len: 30
+  nhead: 4
+  dim_feedforward: 512
+  dropout: 0.2
+num_actions: 4
+exclude_actions: ['Search']
+class_names: ['Object Transfer', 'Task Operation', 'Stationary', 'Locomotion']
+class_wise_gate: true
+coarse_head: false
+language_distill: true
+text_model: clip-ViT-B-32
+lambda_lang: 0.15
+multiscale: true
+scales: [1, 2, 4]
+dual_space: true
+lang_subspace_dim: 64
+sensor_subspace_dim: 64
+observability_gate: false
+training:
+  batch_size: 128
+  lr: 1.0e-4
+  weight_decay: 5.0e-4
+  epochs: 40
+  warmup_epochs: 5
+  patience: 15
+  grad_clip: 1.0
+  beta_task: 1.0
+  label_smoothing: 0.05
+  ema_decay: 0.999
+  early_stop_metric: action_f1
+  lambda_coarse: 0.0
+  lambda_orth: 0.05
+  lambda_var: 0.1
+  action_weights: [0.95, 1.05, 1.35, 1.10]
+  scenario_weights: [1.9, 1.0, 1.4, 2.0, 7.6, 1.2, 2.1, 1.6]
+data:
+  action_label_pad: 0.25
+  per_video_center: true
+  add_norm_features: true
+  augmentation: true
+  stride: 10

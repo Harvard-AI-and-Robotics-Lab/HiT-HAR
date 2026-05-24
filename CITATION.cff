@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated paper."
+title: "Beyond Motion Primitives: Behavioral Activity Recognition from Head-Mounted IMU"
+type: software
+authors:
+  - family-names: Huang
+    given-names: Chung-Ta
+  - family-names: Das
+    given-names: Léopold
+  - family-names: Zhou
+    given-names: Jeffrey
+  - family-names: Siddique
+    given-names: Faizaan
+  - family-names: Baek
+    given-names: Julia Seungjoo
+  - family-names: Liu
+    given-names: Serena Yuchen
+  - family-names: Rusli
+    given-names: Andrew
+  - family-names: Zhou
+    given-names: Todd Y.
+  - family-names: Yu
+    given-names: Freddy
+  - family-names: Hansen
+    given-names: Sinclair
+  - family-names: Hu
+    given-names: Ziling
+  - family-names: Sharma
+    given-names: Arnav
+  - family-names: Wang
+    given-names: Mengyu
+date-released: "2026-05-23"
+repository-code: "https://github.com/Harvard-AI-and-Robotics-Lab/HiT-HAR"
+license: "NOASSERTION"

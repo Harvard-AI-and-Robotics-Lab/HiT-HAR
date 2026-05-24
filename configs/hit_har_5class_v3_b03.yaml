@@ -1,0 +1,44 @@
+# 5-class v3: MultiScale + Language + v2 DQ + class-wise gate + coarse head
+# Unified beta formula: beta=0.3
+lle:
+  in_channels: 8
+  embedding_dim: 128
+  window_size: 50
+  se_reduction: 8
+  dropout: 0.3
+hla:
+  num_layers: 3
+  num_classes: 8
+  seq_len: 30
+  nhead: 4
+  dim_feedforward: 512
+  dropout: 0.2
+num_actions: 5
+class_wise_gate: true
+coarse_head: true
+language_distill: true
+text_model: all-mpnet-base-v2
+lambda_lang: 0.15
+multiscale: true
+scales: [1, 2, 4]
+training:
+  batch_size: 128
+  lr: 1.0e-4
+  weight_decay: 5.0e-4
+  epochs: 40
+  warmup_epochs: 3
+  patience: 15
+  grad_clip: 1.0
+  beta_task: 0.3
+  label_smoothing: 0.05
+  ema_decay: 0.999
+  early_stop_metric: action_f1
+  lambda_coarse: 0.3
+  action_weights: [0.95, 1.0, 1.6, 1.2, 3.0]
+  scenario_weights: [1.9, 1.0, 1.4, 2.0, 7.6, 1.2, 2.1, 1.6]
+data:
+  action_label_pad: 0.25
+  per_video_center: true
+  add_norm_features: true
+  augmentation: true
+  stride: 10
