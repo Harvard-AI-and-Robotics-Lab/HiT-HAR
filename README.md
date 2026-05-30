@@ -1,6 +1,6 @@
 # HiT-HAR
 
-### Paper: arXiv link pending | CVPR Workshop 2026
+### Paper: CVPR Sense of Space Workshop 2026
 
 Official implementation of **"Beyond Motion Primitives: Behavioral Activity Recognition from Head-Mounted IMU"**.
 
@@ -169,10 +169,11 @@ See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for additional training a
 If you find this repository useful, please cite:
 
 ```bibtex
-@misc{huang2026beyondmotion,
-  title  = {Beyond Motion Primitives: Behavioral Activity Recognition from Head-Mounted IMU},
-  author = {Huang, Chung-Ta and Das, Léopold and Zhou, Jeffrey and Siddique, Faizaan and Baek, Julia Seungjoo and Liu, Serena Yuchen and Rusli, Andrew and Zhou, Todd Y. and Yu, Freddy and Hansen, Sinclair and Hu, Ziling and Sharma, Arnav and Wang, Mengyu},
-  year   = {2026}
+@article{huang2026beyond,
+  title={Beyond Motion Primitives: Behavioral Activity Recognition from Head-Mounted IMU},
+  author={Huang, Chung-Ta and Das, Leopold and Zhou, Jeffrey and Siddique, Faizaan and Baek, Julia Seungjoo and Liu, Serena and Rusli, Andrew and Zhou, Todd Y and Yu, Freddy and Hansen, Sinclair and others},
+  journal={CVPR Workshop Sense of Space},
+  year={2026}
 }
 ```
 
